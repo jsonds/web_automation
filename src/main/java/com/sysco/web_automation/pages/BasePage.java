@@ -1,5 +1,6 @@
 package com.sysco.web_automation.pages;
 
+import com.sysco.web_automation.common.Constants;
 import com.syscolab.qe.core.common.LoggerUtil;
 import com.syscolab.qe.core.ui.SyscoLabUI;
 import org.openqa.selenium.By;
@@ -7,8 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.util.concurrent.TimeUnit;
-
-import static com.sysco.web_automation.common.Constants.DEFAULT_TIMEOUT;
 
 public class BasePage {
 
@@ -26,11 +25,11 @@ public class BasePage {
             webDriver.manage().timeouts().implicitlyWait(timeOut, TimeUnit.SECONDS);
             try{
                 WebElement element = webDriver.findElement(by);
-                webDriver.manage().timeouts().implicitlyWait(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
+                webDriver.manage().timeouts().implicitlyWait(Constants.DEFAULT_TIMEOUT, TimeUnit.SECONDS);
                 return syscoLabUI.isDisplayed(element);
             } catch (Exception e){
                 LoggerUtil.logERROR("Element located by: " + by +  " not displayed", e);
-                webDriver.manage().timeouts().implicitlyWait(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
+                webDriver.manage().timeouts().implicitlyWait(Constants.DEFAULT_TIMEOUT, TimeUnit.SECONDS);
                 return false;
             }
 

@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 @Listeners(SyscoLabListener.class)
-public class UserVerificationTest extends TestBase {
+public class BundaberGumTest extends TestBase {
 
 
     private SoftAssert softAssert;
