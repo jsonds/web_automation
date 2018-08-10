@@ -7,6 +7,6 @@ public class HomePage extends BasePage {
     private By divBanner = By.className("home-hero-banner");
 
     public boolean isHomePageBannerVisible(){
-        return isDisplayed(divBanner,10L);
+        return isDisplayed(divBanner,5L);
     }
 }

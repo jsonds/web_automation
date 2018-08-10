@@ -7,17 +7,17 @@ public class UserVerification {
     private static UserVerificationPage userVerificationPage = new UserVerificationPage();
 
     public static void verifyPageLoaded(){
-        userVerificationPage .waitUntillPageLoaded();
+        userVerificationPage.waitUntillPageLoaded();
     }
     public static void enterBirthDate(UserData userData){
 
-        userVerificationPage .selectDay(userData.getBirthDay());
-        userVerificationPage .selectMonth(userData.getBirthMonth());
-        userVerificationPage .selectYear(userData.getBirthYear());
-        userVerificationPage .clickEnterBtn();
+        userVerificationPage.selectDay(userData.getBirthDay());
+        userVerificationPage.selectMonth(userData.getBirthMonth());
+        userVerificationPage.selectYear(userData.getBirthYear());
+        userVerificationPage.clickEnterBtn();
     }
 
     public static String getIllegalUserErrorMessage(){
-        return userVerificationPage .getIllegalUserErrorMessage();
+        return userVerificationPage.getIllegalUserErrorMessage();
     }
 }
