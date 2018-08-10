@@ -1,0 +1,33 @@
+package com.sysco.web_automation.tests;
+
+import com.sysco.web_automation.data.UserData;
+import com.sysco.web_automation.functions.Home;
+import com.sysco.web_automation.functions.UserVerification;
+import com.sysco.web_automation.utils.TestBase;
+import com.syscolab.qe.core.reporting.SyscoLabListener;
+import org.testng.ITestContext;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+@Listeners(SyscoLabListener.class)
+public class UserVerificationTest extends TestBase {
+
+
+    private SoftAssert softAssert;
+    @BeforeClass
+    public void initClass(ITestContext iTestContext) {
+        iTestContext.setAttribute("feature", "User Verification - User Age Verification");
+    }
+    @Test(description = "Verify legal user is navigated to home page")
+    public void testLegalUser(){
+
+        softAssert = new SoftAssert();
+        UserVerification.verifyPageLoaded();
+        UserData validUser = new UserData(1);
+        UserVerification.enterBirthDate(validUser);
+        softAssert.assertTrue(Home.verifyPageLoaded(), "Verify legal age user is navigated to home page.");
+        softAssert.assertAll();
+    }
+}
