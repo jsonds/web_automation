@@ -12,7 +12,5 @@ public class Home {
         homePage.navigateToMyAcc();
     }
 
-    public static boolean isLoginBtnAvailable(){
-        return homePage.isLoginBtnAvailable();
-    }
+
 }

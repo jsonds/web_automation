@@ -2,6 +2,7 @@ package com.sysco.web_automation.tests;
 
 import com.sysco.web_automation.data.UserData;
 import com.sysco.web_automation.functions.Home;
+import com.sysco.web_automation.functions.MyAccount;
 import com.sysco.web_automation.functions.UserVerification;
 import com.sysco.web_automation.utils.TestBase;
 import com.syscolab.qe.core.reporting.SyscoLabListener;
@@ -57,7 +58,7 @@ public class BundaberGumTest extends TestBase {
 
         Home.navigateToMyAcc();
 
-        softAssert.assertTrue(Home.isLoginBtnAvailable());
+        softAssert.assertTrue(MyAccount.isLoginBtnAvailable());
         softAssert.assertAll();
     }
 
@@ -69,8 +70,15 @@ public class BundaberGumTest extends TestBase {
 
     }
 
+    @Test(description = "Verify Login to My Account" , dependsOnMethods = "testNavigateToMyAcc")
     public void testLoginToAcc(){
 
+        softAssert = new SoftAssert();
+
+        UserData validCredential = new UserData("validUser");
+        MyAccount.submitUserCredentials(validCredential);
+
+        softAssert.assertTrue(MyAccount.isWelcomeMsgAvailable());
     }
 
 }

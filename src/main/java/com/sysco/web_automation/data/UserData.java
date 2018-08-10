@@ -3,6 +3,27 @@ package com.sysco.web_automation.data;
 public class UserData {
 
     private String birthDay;
+    private String birthMonth;
+    private String birthYear;
+
+    private String userName;
+    private String password;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public String getBirthDay() {
         return birthDay;
@@ -28,8 +49,6 @@ public class UserData {
         this.birthYear = birthYear;
     }
 
-    private String birthMonth;
-    private String birthYear;
 
     public UserData(int userType){
         switch (userType){
@@ -44,5 +63,15 @@ public class UserData {
                 birthYear =  "2003";
                 break;
         }
+    }
+
+    public UserData(String userType){
+        switch (userType){
+            case "validUser":
+                userName = "williamjacob802@gmail.com";
+                password = "12345678";
+                break;
+        }
+
     }
 }
