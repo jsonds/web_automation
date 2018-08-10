@@ -79,6 +79,19 @@ public class BundaberGumTest extends TestBase {
         MyAccount.submitUserCredentials(validCredential);
 
         softAssert.assertTrue(MyAccount.isWelcomeMsgAvailable());
+        softAssert.assertAll();
+    }
+
+    @Test(description = "Verify Logedin Users Name", dependsOnMethods = "testLoginToAcc")
+    public void testVerifyLogedInUserName(){
+
+        softAssert = new SoftAssert();
+
+        UserData validCredential = new UserData("validUser");
+
+        softAssert.assertTrue(MyAccount.verifyLoggedInUser(validCredential));
+        softAssert.assertAll();
+
     }
 
 }

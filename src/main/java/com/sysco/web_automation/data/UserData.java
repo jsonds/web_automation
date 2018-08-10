@@ -8,6 +8,24 @@ public class UserData {
 
     private String userName;
     private String password;
+    private String firstName;
+    private String lastName;
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     public String getUserName() {
         return userName;
@@ -70,6 +88,15 @@ public class UserData {
             case "validUser":
                 userName = "williamjacob802@gmail.com";
                 password = "12345678";
+                firstName = "WILLIAM";
+                lastName = "JACOB";
+                break;
+
+            case "invalidUser":
+                userName = "abc@abc.com";
+                password = "123";
+                lastName = "abc";
+                firstName = "def";
                 break;
         }
 

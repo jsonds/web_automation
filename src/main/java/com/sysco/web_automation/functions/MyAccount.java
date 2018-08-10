@@ -20,4 +20,9 @@ public class MyAccount {
     public static boolean isWelcomeMsgAvailable(){
         return myAccountPage.isWelcomeMsgAvailable();
     }
+
+    public static boolean verifyLoggedInUser(UserData userObj){
+        String fullName = userObj.getFirstName()+" "+userObj.getLastName();
+        return myAccountPage.getWelcomeMsg().contains(fullName);
+    }
 }

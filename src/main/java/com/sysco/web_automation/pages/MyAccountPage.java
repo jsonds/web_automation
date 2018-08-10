@@ -8,7 +8,7 @@ public class MyAccountPage extends BasePage {
     private By txtEmail = By.id("email");
     private By txtPwd = By.id("pass");
 
-    private By divWelcomeMsg = By.xpath("//h2[contains(text(),'Hello,')]");
+    private By divWelcomeMsg = By.xpath("//div[@class='dashboard']//div[@class='welcome-msg']");
 
     public boolean isLoginBtnAvailable(){
         return isDisplayed(btnLogin,5L);
@@ -27,6 +27,10 @@ public class MyAccountPage extends BasePage {
     }
 
     public boolean isWelcomeMsgAvailable(){
-        return syscoLabUI.getText(divWelcomeMsg).contains("Hello");
+       return syscoLabUI.getText(divWelcomeMsg).contains("HELLO");
+    }
+
+    public String getWelcomeMsg(){
+        return syscoLabUI.getText(divWelcomeMsg);
     }
 }
