@@ -21,33 +21,42 @@ public class BundaberGumTest extends TestBase {
         iTestContext.setAttribute("feature", "Bundabergrum - Checkout");
     }
 
-    //@Test(description = "Verify illegal user is stopped accesing the home page")
+    @Test(description = "Verify illegal user is stopped accesing the home page")
     public void testIllegalUser(){
 
         softAssert = new SoftAssert();
+        String ILLEGAL_USER_ERROR_MSG = "Sorry, your age or location does not permit you to enter at this time.";
+
         UserVerification.verifyPageLoaded();
         UserData illegalUser = new UserData(2);
         UserVerification.enterBirthDate(illegalUser);
         String errorMsg = UserVerification.getIllegalUserErrorMessage();
-        softAssert.assertEquals(errorMsg, "Sorry, your age or location does not permit you to enter at this time.");
+
+        softAssert.assertEquals(errorMsg, ILLEGAL_USER_ERROR_MSG);
         softAssert.assertAll();
 
     }
 
-    @Test(description = "Verify legal user is navigated to home page")
+    @Test(description = "Verify legal user is navigated to home page",  dependsOnMethods = "testIllegalUser")
     public void testLegalUser(){
 
         softAssert = new SoftAssert();
+
         UserVerification.verifyPageLoaded();
         UserData validUser = new UserData(1);
         UserVerification.enterBirthDate(validUser);
-        softAssert.assertTrue(Home.verifyPageLoaded(), "Verify legal age user is navigated to home page.");
+
+        softAssert.assertTrue(Home.verifyPageLoaded());
         softAssert.assertAll();
     }
 
     @Test(description = "Verify Navigating to My Account" , dependsOnMethods = "testLegalUser")
     public void testNavigateToMyAcc(){
+
+        softAssert = new SoftAssert();
+
         Home.navigateToMyAcc();
+
         softAssert.assertTrue(Home.isLoginBtnAvailable());
         softAssert.assertAll();
     }
@@ -57,6 +66,10 @@ public class BundaberGumTest extends TestBase {
     }
 
     public void testValidateLoginIncorrectCredentials(){
+
+    }
+
+    public void testLoginToAcc(){
 
     }
 

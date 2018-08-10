@@ -39,8 +39,8 @@ public class UserData {
                 birthYear =  "1980";
                 break;
             case 2:
-                birthDay = "01";
-                birthMonth ="01";
+                birthDay = "1";
+                birthMonth ="January";
                 birthYear =  "2003";
                 break;
         }
