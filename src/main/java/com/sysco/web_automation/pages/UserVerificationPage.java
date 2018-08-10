@@ -7,13 +7,8 @@ public class UserVerificationPage extends BasePage {
     private By ddDay = By.id("age_select_day");
     private By ddMonth = By.id("age_select_month");
     private By ddYear = By.id("age_select_year");
-    private By ddCountry = By.id("age_select_country");
     private By btnEnter = By.id("age_confirm_btn");
-    private By divErrorMessage = By.id("age_missing_message");
-
-    public void waitUntillPageLoaded(){
-        syscoLabUI.waitTillElementLoaded(btnEnter);
-    }
+    private By divIllegalUserErrorMsg = By.id("age_missing_message");
 
     public void selectDay(String day){
         syscoLabUI.selectFromDropDown(ddDay,day);
@@ -24,13 +19,14 @@ public class UserVerificationPage extends BasePage {
     public void selectYear(String year){
         syscoLabUI.selectFromDropDown(ddYear,year);
     }
-    public void selectCountry(String country){
-        syscoLabUI.selectFromDropDown(ddCountry,country);
-    }
     public void clickEnterBtn(){
         syscoLabUI.click(btnEnter);
     }
-    public String getErrorMessage(){
-        return syscoLabUI.findElement(divErrorMessage).getText();
+
+    public String getIllegalUserErrorMessage(){
+        return syscoLabUI.findElement(divIllegalUserErrorMsg ).getText();
+    }
+    public void waitUntillPageLoaded(){
+        syscoLabUI.waitTillElementLoaded(btnEnter);
     }
 }

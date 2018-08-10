@@ -56,9 +56,9 @@ public class TestBase {
             syscoLabQCenter.setEnvironment(Constants.TEST_ENV);
 
             syscoLabQCenter.setRelease(Constants.TEST_RELEASE);
-            /*syscoLabQCenter.setModule(iTestContext.getAttribute("feature").toString());
+            syscoLabQCenter.setModule(iTestContext.getAttribute("feature").toString());
             syscoLabQCenter.setFeature(iTestContext.getAttribute("feature").toString());
-            syscoLabQCenter.setClassName(iTestContext.getClass().getName());*/
+            syscoLabQCenter.setClassName(iTestContext.getClass().getName());
 
             if (Constants.UPDATE_DASHBOARD)
                 SyscoLabReporting.generateJsonFile(SyscoLabListener.getResults(), syscoLabQCenter);

@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 import static com.sysco.web_automation.common.Constants.DEFAULT_TIMEOUT;
 
-public abstract class BasePage {
+public class BasePage {
 
 
 
@@ -39,15 +39,5 @@ public abstract class BasePage {
         public static void setWebDriver(RemoteWebDriver webDriver) {
             BasePage.webDriver = webDriver;
         }
-
-        public void sleep(long seconds){
-
-            try {
-                Thread.sleep(seconds);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-
 
 }

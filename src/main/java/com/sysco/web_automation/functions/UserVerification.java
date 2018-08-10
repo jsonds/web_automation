@@ -17,7 +17,7 @@ public class UserVerification {
         userVerificationPage .clickEnterBtn();
     }
 
-    public static String getErrorMessage(){
-        return userVerificationPage .getErrorMessage();
+    public static String getIllegalUserErrorMessage(){
+        return userVerificationPage .getIllegalUserErrorMessage();
     }
 }

@@ -18,8 +18,22 @@ public class UserVerificationTest extends TestBase {
     private SoftAssert softAssert;
     @BeforeClass
     public void initClass(ITestContext iTestContext) {
-        iTestContext.setAttribute("feature", "User Verification - User Age Verification");
+        iTestContext.setAttribute("feature", "Bundabergrum - Checkout");
     }
+
+    //@Test(description = "Verify illegal user is stopped accesing the home page")
+    public void testIllegalUser(){
+
+        softAssert = new SoftAssert();
+        UserVerification.verifyPageLoaded();
+        UserData illegalUser = new UserData(2);
+        UserVerification.enterBirthDate(illegalUser);
+        String errorMsg = UserVerification.getIllegalUserErrorMessage();
+        softAssert.assertEquals(errorMsg, "Sorry, your age or location does not permit you to enter at this time.");
+        softAssert.assertAll();
+
+    }
+
     @Test(description = "Verify legal user is navigated to home page")
     public void testLegalUser(){
 
