@@ -62,15 +62,19 @@ public class BundaberGumTest extends TestBase {
         softAssert.assertAll();
     }
 
-    public void testValidateLoginCorrectCredentials(){
-
-    }
-
+    @Test(description = "Verify Invalid User Credential validation message" , dependsOnMethods = "testNavigateToMyAcc")
     public void testValidateLoginIncorrectCredentials(){
+        String expectedValidationMsg = "Invalid login or password";
+        softAssert = new SoftAssert();
+        UserData invalidUserCredentials =  new UserData("invalidUser");
 
+        MyAccount.submitUserCredentials(invalidUserCredentials);
+        softAssert.assertTrue(MyAccount.getInvalidUserNameOrPwValidationMsg().contains(expectedValidationMsg));
+
+        softAssert.assertAll();
     }
 
-    @Test(description = "Verify Login to My Account" , dependsOnMethods = "testNavigateToMyAcc")
+    @Test(description = "Verify Login to My Account" , dependsOnMethods = "testValidateLoginIncorrectCredentials")
     public void testLoginToAcc(){
 
         softAssert = new SoftAssert();

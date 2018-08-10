@@ -7,6 +7,9 @@ public class MyAccountPage extends BasePage {
     private By btnLogin = By.id("send2");
     private By txtEmail = By.id("email");
     private By txtPwd = By.id("pass");
+    private By divPwdValidationMsg = By.id("advice-required-entry-pass");
+    private By divUserNameValidationMsg = By.id("advice-required-entry-email");
+    private By spnInvalidCredentials = By.xpath("//span[contains(text(),'Invalid login or password.')]");
 
     private By divWelcomeMsg = By.xpath("//div[@class='dashboard']//div[@class='welcome-msg']");
 
@@ -15,10 +18,12 @@ public class MyAccountPage extends BasePage {
     }
 
     public void submitEmail(String email){
+        syscoLabUI.clear(txtEmail);
         syscoLabUI.sendKeys(txtEmail,email);
     }
 
     public void submitPwd(String pwd){
+        syscoLabUI.clear(txtPwd);
         syscoLabUI.sendKeys(txtPwd,pwd);
     }
 
@@ -32,5 +37,17 @@ public class MyAccountPage extends BasePage {
 
     public String getWelcomeMsg(){
         return syscoLabUI.getText(divWelcomeMsg);
+    }
+
+    public String getPasswordFieldRequired() {
+        return syscoLabUI.getText(divPwdValidationMsg);
+    }
+
+    public String getUserNameRequired() {
+        return syscoLabUI.getText(divUserNameValidationMsg);
+    }
+
+    public String getInvalidUserNameOrPwValidationMsg(){
+        return syscoLabUI.getText(spnInvalidCredentials);
     }
 }

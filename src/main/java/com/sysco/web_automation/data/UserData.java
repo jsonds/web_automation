@@ -86,15 +86,15 @@ public class UserData {
     public UserData(String userType){
         switch (userType){
             case "validUser":
-                userName = "williamjacob802@gmail.com";
+                userName = "sabermetrics@yopmail.com";
                 password = "12345678";
-                firstName = "WILLIAM";
-                lastName = "JACOB";
+                firstName = "SABER";
+                lastName = "METRICS";
                 break;
 
             case "invalidUser":
                 userName = "abc@abc.com";
-                password = "123";
+                password = "123123123";
                 lastName = "abc";
                 firstName = "def";
                 break;

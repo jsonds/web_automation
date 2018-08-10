@@ -25,4 +25,16 @@ public class MyAccount {
         String fullName = userObj.getFirstName()+" "+userObj.getLastName();
         return myAccountPage.getWelcomeMsg().contains(fullName);
     }
+
+    public static String getInvalidUserNameOrPwValidationMsg(){
+        return myAccountPage.getInvalidUserNameOrPwValidationMsg();
+    }
+
+    public static String getUserNameRequired(){
+        return myAccountPage.getUserNameRequired();
+    }
+
+    public static String getPasswordFieldRequired(){
+        return myAccountPage.getPasswordFieldRequired();
+    }
 }
