@@ -21,7 +21,7 @@ public class BundaberGumTest extends TestBase {
         iTestContext.setAttribute("feature", "Bundabergrum - Checkout");
     }
 
-    @Test(description = "Verify illegal user is stopped accesing the home page")
+    //@Test(description = "Verify illegal user is stopped accesing the home page")
     public void testIllegalUser(){
 
         softAssert = new SoftAssert();
@@ -45,9 +45,19 @@ public class BundaberGumTest extends TestBase {
         softAssert.assertAll();
     }
 
-    @Test(description = "Verify Login Button exists")
-    public void testLoginButtonAvailability(){
-        
+    @Test(description = "Verify Navigating to My Account" , dependsOnMethods = "testLegalUser")
+    public void testNavigateToMyAcc(){
+        Home.navigateToMyAcc();
+        softAssert.assertTrue(Home.isLoginBtnAvailable());
+        softAssert.assertAll();
+    }
+
+    public void testValidateLoginCorrectCredentials(){
+
+    }
+
+    public void testValidateLoginIncorrectCredentials(){
+
     }
 
 }

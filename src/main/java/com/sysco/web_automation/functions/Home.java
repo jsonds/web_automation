@@ -8,4 +8,11 @@ public class Home {
     public static boolean verifyPageLoaded(){
         return homePage.isHomePageBannerVisible();
     }
+    public static void navigateToMyAcc(){
+        homePage.navigateToMyAcc();
+    }
+
+    public static boolean isLoginBtnAvailable(){
+        return homePage.isLoginBtnAvailable();
+    }
 }
