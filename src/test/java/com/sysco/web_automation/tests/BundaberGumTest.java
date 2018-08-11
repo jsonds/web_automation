@@ -3,6 +3,7 @@ package com.sysco.web_automation.tests;
 import com.sysco.web_automation.data.UserData;
 import com.sysco.web_automation.functions.Home;
 import com.sysco.web_automation.functions.MyAccount;
+import com.sysco.web_automation.functions.ShoppingCart;
 import com.sysco.web_automation.functions.UserVerification;
 import com.sysco.web_automation.utils.TestBase;
 import com.syscolab.qe.core.reporting.SyscoLabListener;
@@ -98,4 +99,16 @@ public class BundaberGumTest extends TestBase {
 
     }
 
+    @Test(description = "Remove items from shopping cart if exists",dependsOnMethods = "testVerifyLogedInUserName")
+    public void testRemoveItemsFromShoppingCartIfExists(){
+
+        softAssert = new SoftAssert();
+
+        ShoppingCart.removeItemsFromShoppingCart();
+
+        softAssert.assertEquals(ShoppingCart.getShoppingCartItemCount(),0);
+        softAssert.assertAll();
+
+
+    }
 }

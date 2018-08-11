@@ -27,4 +27,15 @@ public class BasePage {
             WebElement element = webDriver.findElement(by);
             return syscoLabUI.isDisplayed(element);
         }
+
+        public void sleepFor(int sleepSeconds) {
+            try {
+                Thread.sleep(sleepSeconds * 1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+
 }
