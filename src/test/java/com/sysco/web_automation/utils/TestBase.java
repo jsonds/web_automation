@@ -38,7 +38,7 @@ public class TestBase {
             syscoLabWUI.getDriver().manage().window().maximize();
             BasePage.setWebDriver(syscoLabWUI.getDriver());
         } catch (UnsupportedEncodingException e) {
-            LoggerUtil.logERROR("Unable to encode URL", e);
+            e.printStackTrace();
         }
     }
 
