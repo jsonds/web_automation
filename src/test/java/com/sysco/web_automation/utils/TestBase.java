@@ -2,14 +2,12 @@ package com.sysco.web_automation.utils;
 
 
 import com.sysco.web_automation.pages.BasePage;
-import com.syscolab.qe.core.common.LoggerUtil;
 import com.syscolab.qe.core.reporting.SyscoLabListener;
 import com.syscolab.qe.core.reporting.SyscoLabQCenter;
 import com.syscolab.qe.core.reporting.SyscoLabReporting;
 import com.sysco.web_automation.common.Constants;
 import com.syscolab.qe.core.ui.SyscoLabUI;
 import com.syscolab.qe.core.ui.web.SyscoLabWUI;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
