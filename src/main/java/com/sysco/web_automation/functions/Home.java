@@ -13,9 +13,13 @@ public class Home {
         homePage.navigateToMyAcc();
     }
 
-    public static void clickAllBottlesLink(){
+    public static void clickExclusiveBottlesLink(){
         homePage.mouseHoverOnProduct();
-        homePage.clickAllBottlesLink();
+        homePage.clickExclusiveBottlesLink();
+    }
+
+    public static boolean isExclusivePage(){
+        return homePage.isExclusivePage();
     }
 
 }

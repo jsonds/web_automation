@@ -1,10 +1,7 @@
 package com.sysco.web_automation.tests;
 
 import com.sysco.web_automation.data.UserData;
-import com.sysco.web_automation.functions.Home;
-import com.sysco.web_automation.functions.MyAccount;
-import com.sysco.web_automation.functions.ShoppingCart;
-import com.sysco.web_automation.functions.UserVerification;
+import com.sysco.web_automation.functions.*;
 import com.sysco.web_automation.utils.TestBase;
 import com.syscolab.qe.core.reporting.SyscoLabListener;
 import org.testng.ITestContext;
@@ -109,6 +106,31 @@ public class BundaberGumTest extends TestBase {
         softAssert.assertEquals(ShoppingCart.getShoppingCartItemCount(),0);
         softAssert.assertAll();
 
-
     }
+
+    @Test(description = "Add item to cart",dependsOnMethods = "testRemoveItemsFromShoppingCartIfExists")
+    public void testAddItemToCart(){
+
+        softAssert = new SoftAssert();
+
+        //Hover on products
+        Home.clickExclusiveBottlesLink();
+        softAssert.assertTrue(Home.isExclusivePage());
+        // select first product category
+        ExclusiveProduct.clickOnFirstProductAndAddToCart();
+        softAssert.assertFalse(ShoppingCart.isShoppingCartEmpty());
+
+        softAssert.assertAll();
+    }
+
+    //TODO
+/*    @Test(description = "Verify Name and Price of added Item to Cart",dependsOnMethods = "testAddItemToCart")
+    public void testVerifyPriceNameOfItemInCart(){
+
+        softAssert = new SoftAssert();
+
+
+
+        softAssert.assertAll();
+    }*/
 }

@@ -11,4 +11,20 @@ public class ShoppingCart {
     public static int getShoppingCartItemCount(){
         return shoppingCartPage.getShoppingCartItemCount();
     }
+
+    public static void moveToShoppingCart(){
+        shoppingCartPage.clickShoppingCart();
+    }
+
+    public static boolean isShoppingCartEmpty(){
+        return shoppingCartPage.isShoppingCartEmpty();
+    }
+
+/*    public static String getItemName(){
+        return
+    }
+
+    public static double getItemPrice(){
+
+    }*/
 }
